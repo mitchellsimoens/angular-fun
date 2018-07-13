@@ -1,0 +1,13 @@
+<div
+  [class.inline]="inline"
+  *ngFor="let item of data"
+  (click)="onItemClick(item, $event)"
+>
+  <ng-template
+    ngFor
+    let-item
+    [ngForOf]="[item]"
+    [ngForTemplate]="template"
+  >
+  </ng-template>
+</div>

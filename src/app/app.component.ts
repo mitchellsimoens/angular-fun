@@ -6,13 +6,16 @@ import { Component, Inject } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'hello';
-
   constructor (
-    @Inject('mail') private mail
+    @Inject('mail') private mail,
+    @Inject('user') private user
   ) {}
 
   onUpdate (id, text) {
     this.mail.update(id, text);
+  }
+
+  onDisclose (item) {
+    console.log(item);
   }
 }
