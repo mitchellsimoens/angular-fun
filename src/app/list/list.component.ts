@@ -14,11 +14,6 @@ export class ListComponent {
   @Input() disclose: boolean;
 
   @Output() discloser = new EventEmitter();
-
-  onItemClick (item, event) {
-    if (this.disclose) {
-      this.discloser.emit({ event, item });
-    }
-  }
+  @Output() itemclick = new EventEmitter();
 
 }

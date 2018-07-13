@@ -1,7 +1,8 @@
 <div
   [class.inline]="inline"
+  [class.vertical]="!inline"
   *ngFor="let item of data"
-  (click)="onItemClick(item, $event)"
+  (click)="itemclick.emit({ event: $event, item: item })"
 >
   <ng-template
     ngFor
@@ -10,4 +11,12 @@
     [ngForTemplate]="template"
   >
   </ng-template>
+
+  <div
+    class="disclose"
+    *ngIf="disclose"
+    (click)="discloser.emit({ event: $event, item: item })"
+  >
+    ->
+  </div>
 </div>
