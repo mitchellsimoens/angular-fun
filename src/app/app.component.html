@@ -1,5 +1,5 @@
 <div class="example-group">
-  <h1>simple-form example(s)</h1>
+  <h1>simple-form example</h1>
   <ul>
     <li *ngFor="let message of mail.messages">
       {{message.text}}
@@ -17,6 +17,7 @@
 <div class="example-group">
   <h1>list examples</h1>
 
+  <h3>Normal Lists</h3>
   <!-- simple list, uses default template -->
   <app-list [data]="user.users"></app-list>
 
@@ -24,7 +25,6 @@
 
   <!-- list that uses disclosure icon, a custom item template and no row lines -->
   <app-list
-    [class.list-item-mouseover]=true
     [data]="user.users"
     [disclose]=true
     [rowLines]=false
@@ -35,7 +35,7 @@
     </ng-template>
   </app-list>
 
-  <hr />
+  <h3>Horizontal Lists</h3>
 
   <!-- simple horizontal list, uses default template -->
   <app-list [data]="user.users" [inline]=true></app-list>
@@ -44,11 +44,14 @@
 
   <!-- simple horizontal list, uses default template and no row lines -->
   <app-list
-    [class.list-item-mouseover]=true
     [data]="user.users"
     [disclose]=true
     [inline]=true
     [rowLines]=false
     (itemdisclose)="onDisclose($event.item, $event.event)"
-  ></app-list>
+  >
+    <ng-template #itemTpl let-item>
+      Name: {{ item.name }}
+    </ng-template>
+  </app-list>
 </div>

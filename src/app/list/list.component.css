@@ -6,7 +6,7 @@
   display: flex;
 }
 
-:host.list-item-mouseover > .list-item:hover > * {
+:host > .list-item:hover > * {
   background: rgb(216, 216, 216);
 }
 
