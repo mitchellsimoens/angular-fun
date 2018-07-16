@@ -1,23 +1,54 @@
-<ul>
-  <li *ngFor="let message of mail.messages">
-    {{message.text}}
-  </li>
-</ul>
+<div class="example-group">
+  <h1>simple-form example(s)</h1>
+  <ul>
+    <li *ngFor="let message of mail.messages">
+      {{message.text}}
+    </li>
+  </ul>
 
-<app-simple-form
-  *ngFor="let message of mail.messages"
-  [message]="message.text"
-  (update)="onUpdate(message.id, $event.text)"
->
-</app-simple-form>
+  <app-simple-form
+    *ngFor="let message of mail.messages"
+    [message]="message.text"
+    (update)="onUpdate(message.id, $event.text)"
+  >
+  </app-simple-form>
+</div>
 
+<div class="example-group">
+  <h1>list examples</h1>
 
-<app-list
-  [data]="user.users"
-  [disclose]=true
-  (itemdisclose)="onDisclose($event.item, $event.event)"
->
-  <ng-template #itemTpl let-item>
-    Name: {{ item.name }}
-  </ng-template>
-</app-list>
+  <!-- simple list, uses default template -->
+  <app-list [data]="user.users"></app-list>
+
+  <hr />
+
+  <!-- list that uses disclosure icon, a custom item template and no row lines -->
+  <app-list
+    [class.list-item-mouseover]=true
+    [data]="user.users"
+    [disclose]=true
+    [rowLines]=false
+    (itemdisclose)="onDisclose($event.item, $event.event)"
+  >
+    <ng-template #itemTpl let-item>
+      Name: {{ item.name }}
+    </ng-template>
+  </app-list>
+
+  <hr />
+
+  <!-- simple horizontal list, uses default template -->
+  <app-list [data]="user.users" [inline]=true></app-list>
+
+  <hr />
+
+  <!-- simple horizontal list, uses default template and no row lines -->
+  <app-list
+    [class.list-item-mouseover]=true
+    [data]="user.users"
+    [disclose]=true
+    [inline]=true
+    [rowLines]=false
+    (itemdisclose)="onDisclose($event.item, $event.event)"
+  ></app-list>
+</div>

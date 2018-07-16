@@ -1,6 +1,10 @@
 :host {
   display: flex;
-  flex-direction: column;
+}
+
+input {
+  flex: 1;
+  margin-right: 10px;
 }
 
 input:focus {
@@ -9,7 +13,7 @@ input:focus {
 }
 
 button {
-  border: none;
+  width: 125px;
 }
 
 .mousedown {

@@ -11,10 +11,11 @@ export class ListComponent {
   @ContentChild('defaultTpl') defaultTpl: TemplateRef<ElementRef>;
 
   @Input() data;
-  @Input() inline;
   @Input() disclose: boolean;
+  @Input() inline;
+  @Input() rowLines = true;
 
-  @Output() itemdisclose = new EventEmitter();
   @Output() itemclick = new EventEmitter();
+  @Output() itemdisclose = new EventEmitter();
 
 }

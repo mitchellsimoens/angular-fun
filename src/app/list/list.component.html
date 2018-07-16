@@ -1,17 +1,26 @@
 <div
+  [class.list-item]=true
   [class.inline]="inline"
   [class.vertical]="!inline"
+  [class.row-lines]="rowLines"
   *ngFor="let item of data"
   (click)="itemclick.emit({ event: $event, item: item })"
 >
-  <ng-template
-    *ngIf="itemTpl else defaultTpl"
-    ngFor
-    let-item
-    [ngForOf]="[item]"
-    [ngForTemplate]="itemTpl"
-  >
+
+  <!-- A default template -->
+  <ng-template #defaultTpl>
+    {{ item.text }}
   </ng-template>
+
+  <div [class.list-item-inner]=true>
+    <ng-template
+      *ngIf="itemTpl else defaultTpl"
+      ngFor
+      let-item
+      [ngForOf]="[item]"
+      [ngForTemplate]="itemTpl"
+    ></ng-template>
+  </div>
 
   <div
     class="disclose"
@@ -22,8 +31,4 @@
     ->
   </div>
 
-  <!-- A default template -->
-  <ng-template #defaultTpl>
-    {{ item.text }}
-  </ng-template>
 </div>
