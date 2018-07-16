@@ -5,18 +5,25 @@
   (click)="itemclick.emit({ event: $event, item: item })"
 >
   <ng-template
+    *ngIf="itemTpl else defaultTpl"
     ngFor
     let-item
     [ngForOf]="[item]"
-    [ngForTemplate]="template"
+    [ngForTemplate]="itemTpl"
   >
   </ng-template>
 
   <div
     class="disclose"
     *ngIf="disclose"
-    (click)="discloser.emit({ event: $event, item: item })"
+    (click)="itemdisclose.emit({ event: $event, item: item })"
   >
+    <!-- use from fortawesome? -->
     ->
   </div>
+
+  <!-- A default template -->
+  <ng-template #defaultTpl>
+    {{ item.text }}
+  </ng-template>
 </div>

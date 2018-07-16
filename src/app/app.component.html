@@ -15,9 +15,9 @@
 <app-list
   [data]="user.users"
   [disclose]=true
-  (discloser)="onDisclose($event.item, $event.event)"
+  (itemdisclose)="onDisclose($event.item, $event.event)"
 >
-  <ng-template #template let-item>
+  <ng-template #itemTpl let-item>
     Name: {{ item.name }}
   </ng-template>
 </app-list>

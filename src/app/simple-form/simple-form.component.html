@@ -2,7 +2,7 @@
   #myInput
   type="text"
   [(ngModel)]="message"
-  [ngClass]="{mousedown: isMousedown}"
+  [class.mousedown]="isMousedown"
   (mousedown)="isMousedown = true"
   (mouseup)="isMousedown = false"
   (mouseleave)="isMousedown = false"

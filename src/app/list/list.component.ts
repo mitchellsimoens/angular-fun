@@ -1,4 +1,4 @@
-import { Component, ContentChild, ElementRef, Input, TemplateRef, Output, EventEmitter } from '@angular/core';
+import { Component, ContentChild, ElementRef, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-list',
@@ -7,13 +7,14 @@ import { Component, ContentChild, ElementRef, Input, TemplateRef, Output, EventE
 })
 export class ListComponent {
 
-  @ContentChild('template') template: TemplateRef<ElementRef>;
+  @ContentChild('itemTpl') itemTpl: TemplateRef<ElementRef>;
+  @ContentChild('defaultTpl') defaultTpl: TemplateRef<ElementRef>;
 
   @Input() data;
   @Input() inline;
   @Input() disclose: boolean;
 
-  @Output() discloser = new EventEmitter();
+  @Output() itemdisclose = new EventEmitter();
   @Output() itemclick = new EventEmitter();
 
 }
