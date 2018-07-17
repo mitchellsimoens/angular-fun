@@ -1,15 +1,26 @@
 <ul>
-  <li *ngFor="let message of mail.messages">{{ message.text }}</li>
+  <li *ngFor="let message of mail.messages">
+
+    <div
+      class="message"
+      *ngIf="activeMessage?.id !== message.id"
+      (click)="onClick(message, $event)"
+    >
+      {{ message.text }}
+    </div>
+
+    <div *ngIf="activeMessage?.id === message.id">
+      <input
+        #myInput
+        type="text"
+        [(ngModel)]="activeMessage.text"
+        #ctrl="ngModel"
+        required
+      >
+
+      <button (click)="onCancel()">Reset</button>
+      <button (click)="onUpdate(activeMessage.id, activeMessage.text)">Update Message</button>
+    </div>
+
+  </li>
 </ul>
-
-<div *ngFor="let message of mail.messages">
-  <input
-    #myInput
-    type="text"
-    [(ngModel)]="message.text"
-    #ctrl="ngModel"
-    required
-  >
-
-  <button (click)="onUpdate(message.id, message.text)">Update Message</button>
-</div>

@@ -4,7 +4,6 @@ div {
 
 input {
   flex: 1;
-  margin-right: 10px;
 }
 
 input:focus {
@@ -13,5 +12,10 @@ input:focus {
 }
 
 button {
+  margin-left: 10px;
   width: 125px;
+}
+
+.message {
+  cursor: pointer;
 }
