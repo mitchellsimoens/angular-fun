@@ -6,6 +6,7 @@ import { PagesModule } from './pages/pages.module';
 import { ServicesModule } from './services/services.module';
 
 import { AppComponent } from './app.component';
+import { routing } from './app.routing';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -16,7 +17,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     ComponentsModule,
     PagesModule,
-    ServicesModule
+    ServicesModule,
+    routing
   ]
 })
 export class AppModule { }

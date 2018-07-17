@@ -1,11 +1,6 @@
-<div class="example-group">
-  <h1>Mail page</h1>
+<header>
+  <a [routerLink]="['/mail']">Mail</a>
+  <a [routerLink]="['/users']">Users</a>
+</header>
 
-  <app-mail></app-mail>
-</div>
-
-<div class="example-group">
-  <h1>Users page</h1>
-
-  <app-users></app-users>
-</div>
+<router-outlet></router-outlet>
