@@ -1,4 +1,4 @@
-:host {
+div {
   display: flex;
 }
 
@@ -14,8 +14,4 @@ input:focus {
 
 button {
   width: 125px;
-}
-
-.mousedown {
-  border: 2px solid green;
 }

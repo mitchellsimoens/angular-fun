@@ -1,56 +1,11 @@
 <div class="example-group">
-  <h1>mail example</h1>
-  <ul>
-    <li *ngFor="let message of mail.messages">
-      {{message.text}}
-    </li>
-  </ul>
+  <h1>Mail page</h1>
 
-  <app-mail
-    *ngFor="let message of mail.messages"
-    [message]="message.text"
-    (update)="onUpdate(message.id, $event.text)"
-  ></app-mail>
+  <app-mail></app-mail>
 </div>
 
 <div class="example-group">
-  <h1>list examples</h1>
+  <h1>Users page</h1>
 
-  <h3>Normal Lists</h3>
-  <!-- simple list, uses default template -->
-  <app-list [data]="user.users"></app-list>
-
-  <hr />
-
-  <!-- list that uses disclosure icon, a custom item template and no row lines -->
-  <app-list
-    [data]="user.users"
-    [disclose]=true
-    [rowLines]=false
-    (itemdisclose)="onDisclose($event.item, $event.event)"
-  >
-    <ng-template #itemTpl let-item>
-      Name: {{ item.name }}
-    </ng-template>
-  </app-list>
-
-  <h3>Horizontal Lists</h3>
-
-  <!-- simple horizontal list, uses default template -->
-  <app-list [data]="user.users" [inline]=true></app-list>
-
-  <hr />
-
-  <!-- simple horizontal list, uses default template and no row lines -->
-  <app-list
-    [data]="user.users"
-    [disclose]=true
-    [inline]=true
-    [rowLines]=false
-    (itemdisclose)="onDisclose($event.item, $event.event)"
-  >
-    <ng-template #itemTpl let-item>
-      Name: {{ item.name }}
-    </ng-template>
-  </app-list>
+  <app-users></app-users>
 </div>

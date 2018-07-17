@@ -1,13 +1,15 @@
-<input
-  #myInput
-  type="text"
-  [(ngModel)]="message"
-  [class.mousedown]="isMousedown"
-  (mousedown)="isMousedown = true"
-  (mouseup)="isMousedown = false"
-  (mouseleave)="isMousedown = false"
-  #ctrl="ngModel"
-  required
->
+<ul>
+  <li *ngFor="let message of mail.messages">{{ message.text }}</li>
+</ul>
 
-<button (click)="update.emit({ text: message })">Update Message</button>
+<div *ngFor="let message of mail.messages">
+  <input
+    #myInput
+    type="text"
+    [(ngModel)]="message.text"
+    #ctrl="ngModel"
+    required
+  >
+
+  <button (click)="onUpdate(message.id, message.text)">Update Message</button>
+</div>
