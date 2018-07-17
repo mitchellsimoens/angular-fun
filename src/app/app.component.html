@@ -1,17 +1,16 @@
 <div class="example-group">
-  <h1>simple-form example</h1>
+  <h1>mail example</h1>
   <ul>
     <li *ngFor="let message of mail.messages">
       {{message.text}}
     </li>
   </ul>
 
-  <app-simple-form
+  <app-mail
     *ngFor="let message of mail.messages"
     [message]="message.text"
     (update)="onUpdate(message.id, $event.text)"
-  >
-  </app-simple-form>
+  ></app-mail>
 </div>
 
 <div class="example-group">

@@ -1,28 +1,22 @@
-
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { ComponentsModule } from './components/components.module';
+import { PagesModule } from './pages/pages.module';
+import { ServicesModule } from './services/services.module';
 
 import { AppComponent } from './app.component';
-import { ListComponent } from './list/list.component';
-import { MailService } from './mail.service';
-import { SimpleFormComponent } from './simple-form/simple-form.component';
-import { UserService } from './user.service';
 
 @NgModule({
+  bootstrap: [AppComponent],
   declarations: [
-    AppComponent,
-    SimpleFormComponent,
-    ListComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
-  ],
-  providers: [
-    { provide: 'mail', useClass: MailService },
-    { provide: 'user', useClass: UserService }
-  ],
-  bootstrap: [AppComponent]
+    ComponentsModule,
+    PagesModule,
+    ServicesModule
+  ]
 })
 export class AppModule { }

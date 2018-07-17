@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-simple-form',
-  templateUrl: './simple-form.component.html',
-  styleUrls: ['./simple-form.component.css']
+  selector: 'app-mail',
+  templateUrl: './mail.component.html',
+  styleUrls: ['./mail.component.css']
 })
-export class SimpleFormComponent {
+export class MailComponent {
 
   isMouseDown;
 
