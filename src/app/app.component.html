@@ -1,7 +1,7 @@
 <header>
-  <a [routerLink]="['']">Home</a>
-  <a [routerLink]="['/mail']">Mail</a>
-  <a [routerLink]="['/users']">Users</a>
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+  <a routerLink="/mail" routerLinkActive="active">Mail</a>
+  <a routerLink="/users" routerLinkActive="active">Users</a>
 </header>
 
 <router-outlet></router-outlet>
