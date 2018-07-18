@@ -11,15 +11,16 @@
 
     <div *ngIf="activeMessage?.id === message.id">
       <input
-        #myInput
+        #mailUpdateEl
         type="text"
         [(ngModel)]="activeMessage.text"
+        (keypress)="onKeyPress(activeMessage, $event)"
         #ctrl="ngModel"
         required
       >
 
       <button (click)="onCancel()">Reset</button>
-      <button (click)="onUpdate(activeMessage.id, activeMessage.text)">Update Message</button>
+      <button (click)="onUpdate(activeMessage)">Update Message</button>
     </div>
 
   </li>

@@ -11,5 +11,4 @@ export class UserService {
     { id: 2, name: 'Person C', text: 'Person C' }
   ];
 
-  constructor() { }
 }
