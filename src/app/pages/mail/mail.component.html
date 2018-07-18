@@ -15,12 +15,13 @@
         type="text"
         [(ngModel)]="activeMessage.text"
         (keypress)="onKeyPress(activeMessage, $event)"
+        (blur)="onBlur($event)"
         #ctrl="ngModel"
         required
       >
 
-      <button (click)="onCancel()">Reset</button>
-      <button (click)="onUpdate(activeMessage)">Update Message</button>
+      <button #cancelButtonEl (click)="onCancel()">Cancel</button>
+      <button #saveButtonEl (click)="onUpdate(activeMessage)">Update Message</button>
     </div>
 
   </li>

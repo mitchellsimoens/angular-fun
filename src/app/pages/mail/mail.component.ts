@@ -16,7 +16,9 @@ export class MailComponent implements AfterContentChecked {
 
   @Output() update = new EventEmitter();
 
+  @ViewChild('cancelButtonEl') cancelButtonEl: ElementRef;
   @ViewChild('mailUpdateEl') mailUpdateEl: ElementRef;
+  @ViewChild('saveButtonEl') saveButtonEl: ElementRef;
 
   constructor (
     @Inject('mail') private mail
@@ -33,6 +35,24 @@ export class MailComponent implements AfterContentChecked {
     }
 
     this.hasActiveInput = newHasActiveInput;
+  }
+
+  onBlur ({ relatedTarget }) {
+    if (relatedTarget) {
+      const { cancelButtonEl, saveButtonEl } = this;
+
+      if (
+        // if the new target is the cancel button, don't do anything so the button handles it
+        relatedTarget === cancelButtonEl.nativeElement ||
+        // if the new target is the save button, don't do anything so the button handles it
+        relatedTarget === saveButtonEl.nativeElement
+      ) {
+        return;
+      }
+    }
+
+    // wasn't any of the buttons so let's cancel!
+    this.onCancel();
   }
 
   onCancel () {
