@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CommonModule } from '@angular/common';
 
 import { ListComponent } from './list.component';
 
@@ -8,7 +9,12 @@ describe('ListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListComponent ]
+      declarations: [
+        ListComponent
+      ],
+      imports: [
+        CommonModule
+      ]
     })
     .compileComponents();
   }));

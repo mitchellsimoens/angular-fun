@@ -1,14 +1,26 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UsersComponent } from './users.component';
+import { ComponentsModule } from '../../components/components.module';
+
+import { UsersComponent } from '../users/users.component';
+
+import { UserService } from '../../services/user/user.service';
 
 describe('UsersComponent', () => {
   let component: UsersComponent;
   let fixture: ComponentFixture<UsersComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(async (() => {
     TestBed.configureTestingModule({
-      declarations: [ UsersComponent ]
+      declarations: [
+        UsersComponent
+      ],
+      imports: [
+        ComponentsModule
+      ],
+      providers: [
+        { provide: 'user', useClass: UserService }
+      ]
     })
     .compileComponents();
   }));
