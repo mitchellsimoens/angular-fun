@@ -3,7 +3,7 @@ import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-mail',
   templateUrl: './mail.component.html',
-  styleUrls: ['./mail.component.css']
+  styleUrls: ['./mail.component.scss']
 })
 export class MailComponent {
 

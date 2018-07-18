@@ -1,0 +1,19 @@
+$link-color: #0000ff;
+$active-link-color: #3dc53d;
+
+header a {
+  margin-right: 10px;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+}
+
+a:visited {
+  color: $link-color;
+}
+
+a.active {
+  color: $active-link-color;
+}

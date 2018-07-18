@@ -1,3 +1,5 @@
+$lite-gray: rgb(216, 216, 216);
+
 :host {
   display: block;
 }
@@ -31,7 +33,7 @@
 }
 
 .inline.row-lines {
-  border-right: 1px solid rgb(216, 216, 216);
+  border-right: 1px solid $lite-gray;
 }
 
 .inline:last-child {
@@ -48,7 +50,7 @@
 }
 
 .vertical.row-lines {
-  border-bottom: 1px solid rgb(216, 216, 216);
+  border-bottom: 1px solid $lite-gray;
   padding: 0 5px 10px;
 }
 

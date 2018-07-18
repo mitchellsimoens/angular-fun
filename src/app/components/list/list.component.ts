@@ -3,7 +3,7 @@ import { Component, ContentChild, ElementRef, EventEmitter, Input, Output, Templ
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.scss']
 })
 export class ListComponent {
 
