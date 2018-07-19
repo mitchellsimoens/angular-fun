@@ -1,6 +1,6 @@
 import {
   Component, EventEmitter, Inject, Output,
-  AfterContentChecked,
+  AfterContentChecked, OnInit,
   ViewChild, ElementRef
 } from '@angular/core';
 
@@ -9,9 +9,10 @@ import {
   templateUrl: './mail.component.html',
   styleUrls: ['./mail.component.scss']
 })
-export class MailComponent implements AfterContentChecked {
+export class MailComponent implements AfterContentChecked, OnInit {
 
   activeMessage;
+  data;
   hasActiveInput: Boolean;
 
   @Output() update = new EventEmitter();
@@ -23,6 +24,12 @@ export class MailComponent implements AfterContentChecked {
   constructor (
     @Inject('mail') private mail
   ) {}
+
+  ngOnInit () {
+    this.mail
+      .load()
+      .then(data => this.data = data);
+  }
 
   ngAfterContentChecked () {
     const { hasActiveInput } = this;

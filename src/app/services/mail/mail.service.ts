@@ -5,11 +5,19 @@ import { Injectable } from '@angular/core';
 })
 export class MailService {
 
-  messages = [
-    { id: 0, text: 'message 1' },
-    { id: 1, text: 'message 2' },
-    { id: 2, text:  'message 3' }
-  ];
+  messages;
+
+  load () {
+    const { messages } = this;
+
+    if (messages) {
+      return Promise.resolve(messages);
+    } else {
+      return fetch('data/messages.json')
+        .then(response => response.json())
+        .then(data => this.messages = data);
+    }
+  }
 
   update ({ id, text }) {
     this.messages = this.messages.map(m =>

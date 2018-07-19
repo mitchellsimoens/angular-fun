@@ -5,10 +5,18 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  users = [
-    { id: 0, name: 'Person A', text: 'Person A' },
-    { id: 1, name: 'Person B', text: 'Person B' },
-    { id: 2, name: 'Person C', text: 'Person C' }
-  ];
+  users;
+
+  load () {
+    const { users } = this;
+
+    if (users) {
+      return Promise.resolve(users);
+    } else {
+      return fetch('data/users.json')
+        .then(response => response.json())
+        .then(data => this.users = data);
+    }
+  }
 
 }

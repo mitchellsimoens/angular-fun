@@ -1,5 +1,13 @@
-<ul>
-  <li *ngFor="let message of mail.messages">
+<div *ngIf="!data">
+  Loading...
+</div>
+
+<div *ngIf="data && !data.length">
+  No messages.
+</div>
+
+<ul *ngIf="data && data.length">
+  <li *ngFor="let message of data">
 
     <div
       class="message"

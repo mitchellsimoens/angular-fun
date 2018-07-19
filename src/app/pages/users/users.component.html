@@ -1,37 +1,47 @@
-<h3>Normal Lists</h3>
-<!-- simple list, uses default template -->
-<app-list [data]="user.users"></app-list>
+<div *ngIf="!data">
+  Loading...
+</div>
 
-<hr />
+<div *ngIf="data && !data.length">
+  No users.
+</div>
 
-<!-- list that uses disclosure icon, a custom item template and no row lines -->
-<app-list
-  [data]="user.users"
-  [disclose]=true
-  [rowLines]=false
-  (itemdisclose)="onDisclose($event.item, $event.event)"
->
-  <ng-template #itemTpl let-item>
-    Name: {{ item.name }}
-  </ng-template>
-</app-list>
+<div *ngIf="data && data.length">
+  <h3>Normal Lists</h3>
+  <!-- simple list, uses default template -->
+  <app-list [data]="user.users"></app-list>
 
-<h3>Horizontal Lists</h3>
+  <hr />
 
-<!-- simple horizontal list, uses default template -->
-<app-list [data]="user.users" [inline]=true></app-list>
+  <!-- list that uses disclosure icon, a custom item template and no row lines -->
+  <app-list
+    [data]="user.users"
+    [disclose]=true
+    [rowLines]=false
+    (itemdisclose)="onDisclose($event.item, $event.event)"
+  >
+    <ng-template #itemTpl let-item>
+      Name: {{ item.name }}
+    </ng-template>
+  </app-list>
 
-<hr />
+  <h3>Horizontal Lists</h3>
 
-<!-- simple horizontal list, uses default template and no row lines -->
-<app-list
-  [data]="user.users"
-  [disclose]=true
-  [inline]=true
-  [rowLines]=false
-  (itemdisclose)="onDisclose($event.item, $event.event)"
->
-  <ng-template #itemTpl let-item>
-    Name: {{ item.name }}
-  </ng-template>
-</app-list>
+  <!-- simple horizontal list, uses default template -->
+  <app-list [data]="user.users" [inline]=true></app-list>
+
+  <hr />
+
+  <!-- simple horizontal list, uses default template and no row lines -->
+  <app-list
+    [data]="user.users"
+    [disclose]=true
+    [inline]=true
+    [rowLines]=false
+    (itemdisclose)="onDisclose($event.item, $event.event)"
+  >
+    <ng-template #itemTpl let-item>
+      Name: {{ item.name }}
+    </ng-template>
+  </app-list>
+</div>
