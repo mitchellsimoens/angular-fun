@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { APP_ID, Inject, NgModule, PLATFORM_ID } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ComponentsModule } from './components/components.module';
@@ -15,7 +16,7 @@ import { routing } from './app.routing';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'angular-fun' }),
     ComponentsModule,
     HttpClientModule,
     PagesModule,
@@ -23,4 +24,17 @@ import { routing } from './app.routing';
     routing
   ]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(APP_ID) private appId: String
+  ) {
+    const platform = isPlatformBrowser(platformId)
+      ? 'in the browser'
+      : 'on the server';
+
+    console.log(`Running ${platform} with appId=${appId}`);
+  }
+
+}
