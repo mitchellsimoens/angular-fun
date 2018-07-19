@@ -16,7 +16,7 @@ export class UsersComponent implements OnInit {
   ngOnInit () {
     this.user
       .load()
-      .then(data => this.data = data);
+      .subscribe(data => this.data = data);
   }
 
   onDisclose () {

@@ -28,7 +28,7 @@ export class MailComponent implements AfterContentChecked, OnInit {
   ngOnInit () {
     this.mail
       .load()
-      .then(data => this.data = data);
+      .subscribe(data => this.data = data);
   }
 
   ngAfterContentChecked () {
