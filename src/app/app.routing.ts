@@ -5,7 +5,8 @@ import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
-  { path: 'pages', loadChildren: './pages/pages.module#PagesModule' }
+  { path: 'pages', loadChildren: './pages/pages.module#PagesModule' },
+  { path: '**', redirectTo: '' }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
