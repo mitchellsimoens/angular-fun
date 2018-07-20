@@ -1,7 +1,7 @@
 import {
   Component, EventEmitter, Inject, Output,
   AfterContentChecked, OnInit,
-  ViewChild, ElementRef
+  ViewChild, ElementRef, Renderer
 } from '@angular/core';
 
 @Component({
@@ -22,7 +22,8 @@ export class MailComponent implements AfterContentChecked, OnInit {
   @ViewChild('saveButtonEl') saveButtonEl: ElementRef;
 
   constructor (
-    @Inject('mail') private mail
+    @Inject('mail') private mail,
+    private renderer: Renderer
   ) {}
 
   ngOnInit () {
@@ -36,9 +37,10 @@ export class MailComponent implements AfterContentChecked, OnInit {
     const newHasActiveInput = Boolean(this.mailUpdateEl);
 
     if (!hasActiveInput && newHasActiveInput) {
-      const { nativeElement } = this.mailUpdateEl;
-
-      nativeElement.focus();
+      this.renderer.invokeElementMethod(
+        this.mailUpdateEl.nativeElement,
+        'focus'
+      );
     }
 
     this.hasActiveInput = newHasActiveInput;
